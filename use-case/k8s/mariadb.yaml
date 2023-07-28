@@ -1,0 +1,88 @@
+#Begin: Configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mariadb-deployment-init-configmap
+data:
+  mariadb-init.sql: |
+    SET GLOBAL sql_mode = 'ANSI_QUOTES';
+
+    CREATE TABLE `books` (
+      `title` VARCHAR(300) NOT NULL,
+      `description` VARCHAR(5000),
+      `heading` VARCHAR(1000),
+      `img` VARCHAR(500),
+      PRIMARY KEY (`title`)
+    );
+
+    CREATE TABLE `popular` (
+      `title` VARCHAR(300) NOT NULL,
+      `count` BIGINT,
+       PRIMARY KEY (`title`)
+    );
+    INSERT INTO books (title, description, heading, img) VALUES ('Twilight', 'When 17 year old Isabella Swan moves to Forks, Washington to live with her father she expects that her new life will be as dull as the town. But in spite of her awkward manner and low expectations, she finds that her new classmates are drawn to this pale, dark-haired new girl in town. But not, it seems, the Cullen family. These five adopted brothers and sisters obviously prefer their own company and will make no exception for Bella. Bella is convinced that Edward Cullen in particular hates her, but she feels a strange attraction to him, although his hostility makes her feel almost physically ill. He seems determined to push her away - until, that is, he saves her life from an out of control car. Bella will soon discover that there is a very good reason for Edward\'s coldness. He, and his family, are vampires - and he knows how dangerous it is for others to get too close.', 'Stephanie Meyer','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/Twilightbook.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('Harry_Potter_und_der_Stein_der_Weisen', 'Bis zu seinem elften Geburtstag glaubt Harry, er sei ein ganz normaler Junge. Doch dann erfährt er, dass er sich an der Schule für Hexerei und Zauberei einfinden soll, denn er ist ein Zauberer! In Hogwarts stürzt Harry von einem Abenteuer ins nächste und muss gegen Bestien, Mitschüler und Fabelwesen kämpfen. Da ist es gut, dass er schon Freunde gefunden hat, die ihm im Kampf gegen die dunklen Mächte zur Seite stehen. Dies ist der erste Band der international erfolgreichen Harry-Potter-Serie, die Generationen geprägt hat.', 'J.K. Rowling','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/63be06f8134196a5fca3e5320017be22650d4f64-00-00.jpeg');
+    INSERT INTO books (title, description, heading, img) VALUES ('Das_Lied_der_Krähen', 'Ketterdam, pulsierende Hafenstadt, Handelsmetropole, Tummelplatz zwielichtiger Gestalten: Hier hat sich Kaz Brekker zur gerissenen und skrupellosen rechten Hand eines Bandenchefs hochgearbeitet. Als er eines Tages ein Jobangebot erhält, das ihm unermesslichen Reichtum bescheren würde, weiß Kaz zwei Dinge: Erstens wird dieses Geld den Tod seines Bruders rächen. Zweitens kann er den Job unmöglich allein erledigen … Mit fünf Gefährten, die höchst unterschiedliche Motive antreiben, macht Kaz sich auf in den Norden, um einen gefährlichen Magier aus dem bestgesicherten Gefängnis der Welt zu befreien. Die sechs Krähen sind professionell, clever, und Kaz fühlt sich jeder Herausforderung gewachsen, außer in Gegenwart der schönen Inej …', 'Leigh Bardugo','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/9783426654439_22_EN_9783426654439_63574050Z.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('If_we_were_villains', 'As a young actor studying at an elite conservatory, Oliver felt doomed to always be in his friends'' shadows. But when a surprise casting turns a good-natured rivalry between two of them into something dangerous, their stage roles spill over into real life. Ten years later Oliver is released from prison, having served time for a murder he may or may not have committed. What really happened a decade before? And who was to blame?', 'M. L. Rio','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/If_We_Were_Villains.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('A_good_girls_guide_to_murder', 'The case is closed. Five years ago, schoolgirl Andie Bell was murdered by Sal Singh. The police know he did it. Everyone in town knows he did it. But having grown up in the same small town that was consumed by the crime, Pippa Fitz-Amobi isn\'t so sure. When she chooses the case as the topic for her final project, she starts to uncover secrets that someone in town desperately wants to stay hidden. And if the real killer is still out there, how far will they go to keep Pip from the truth ... ?', 'Holly Jackson','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/A_Good_Girls_Guide_to_Murder.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('Das_Schicksal_ist_ein_mieser_Verräter', '\"Krebsbücher sind doof\", sagt die 16-jährige Hazel, die selbst Krebs hat. Sie will auf gar keinen Fall bemitleidet werden und kann mit Selbsthilfegruppen nichts anfangen. Bis sie in einer Gruppe auf den intelligenten, gut aussehenden und umwerfend schlagfertigen Gus trifft. Der geht offensiv mit seiner Krankheit um. Hazel und Gus diskutieren Bücher, hören Musik, sehen Filme und verlieben sich ineinander - trotz ihrer Handicaps und Unerfahrenheit. Gus macht Hazels großen Traum wahr: Gemeinsam fliegen sie nach Amsterdam, um dort Peter Van Houten zu treffen, den Autor von Hazels absolutem Lieblingsbuch. Ein tiefgründiges, emotionales und zugleich freches Jugendbuch über Krankheit, Liebe und Tod.', 'John Green','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/9783446240094.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('Jurassic_Park', 'An astonishing technique for recovering and cloning dinosaur DNA has been discovered. Now humankind\'s most thrilling fantasies have come true. Creatures extinct for eons roam Jurassic Park with their awesome presence and profound mystery, and all the world can visit them-for a price. Until something goes wrong...', 'Michael Crichton','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/Jurassic-Park-book.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('Do_Androids_Dream_of_Electric_Sheep', 'World War Terminus had left the Earth devastated. Through its ruins, bounty hunter Rick Deckard stalked, in search of the renegade replicants who were his prey. When he wasn\'t \'retiring\' them with his laser weapon, he dreamed of owning a live animal - the ultimate status symbol in a world all but bereft of animal life. Then Rick got his chance: the assignment to kill six Nexus-6 targets, for a huge reward. But in Deckard\'s world things were never that simple, and his assignment quickly turned into a nightmare kaleidoscope of subterfuge and deceit - and the threat of death for the hunter rather than the hunted...', 'Philip K. Dick','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/5a43a15d4e59dc940271193dd369fd40.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('Die_Räuber', 'Friedrich Schillers 1781 anonym im Selbstverlag erschienenes und 1782 am Mannheimer Nationaltheater mit großem Erfolg uraufgeführtes erstes Drama \'Die Räuber\' begründete seinen Ruhm als Theaterautor. Mit seinem Schauspiel um den alten Grafen Maximilian von Moor und seine gegensätzlichen Söhne Franz und Karl ist Schiller eine kühne Verknüpfung von Seelendrama, Familientragödie und politischem Melodram gelungen. Das Sturm-und-Drang-Stück fasziniert durch seine rasante Handlung, häufige Ort- und Handlungswechsel, zahlreiche Haupt- und Nebenpersonen und eine leidenschaftliche, bis zur Unnatürlichkeit offene - teilweise auch vulgäre - Sprache.', 'Friedrich Schiller','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/Unbenannt2.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('Die_Bestimmung', 'Altruan: die Selbstlosen. Candor: die Freimütigen. Ken: die Wissenden. Amite: die Friedfertigen. Und Ferox: die Furchtlosen … Fünf Fraktionen, fünf verschiedene Lebensformen sind es, zwischen denen Beatrice wählen muss. Ihre Entscheidung wird ihr gesamtes künftiges Leben bestimmen, denn die Fraktion, der sie sich anschließt, gilt fortan als ihre Familie. Doch der Test, der über Beatrices innere Bestimmung Auskunft geben soll, zeigt kein eindeutiges Ergebnis. Sie ist eine Unbestimmte. Die aber gelten in ihrer Welt als hoch gefährlich ...', 'Veronica Roth','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/9783442479443xxl.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('The_haunting_of_Hill_House', 'Four seekers have arrived at the rambling old pile known as Hill House: Dr. Montague, an occult scholar looking for solid evidence of psychic phenomena; Theodora, his lovely assistant; Luke, the future inheritor of the estate; and Eleanor, a friendless, fragile young woman with a dark past. As they begin to cope with horrifying occurrences beyond their control or understanding, they cannot possibly know what lies ahead. For Hill House is gathering its powers - and soon it will choose one of them to make its own.', 'Shirley Jackson','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/HauntingOfHillHouse.jpg');
+    INSERT INTO books (title, description, heading, img) VALUES ('Stolz_und_Vorurteil', 'Nicht weniger als fünf Töchter haben die Bennets standesgemäß unter die Haube zu bringen. Kein leichtes Unterfangen für eine Familie auf dem Land, die nur über ein bescheidenes Vermögen verfügt. Ausgerechnet die intelligente Elizabeth, das Lieblingskind des Vaters, erweist sich als besonders schwieriger Fall. Zum allgemeinen Unverständnis hat sie die Stirn, den Antrag eines wohlsituierten Pfarrers auszuschlagen. Statt dem Drängen der Familie nachzugeben, folgt Elizabeth hartnäckig ihrem eigenen Urteil', 'Jane Austin','https://raw.githubusercontent.com/JessikaK/J-Team_bigdata/main/images/9783423141604__COVER_2D%20(Produktcover%20Web%20klein)_1920x1920.jpg');
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb-deployment
+  labels:
+    app: my-mariadb-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-mariadb
+  template:
+    metadata:
+      labels:
+        app: my-mariadb
+    spec:
+      # Mount the configmap volume
+      # This is an excerpt of deployment.spec.template.spec
+      volumes:
+        - name: init-volume
+          configMap:
+            name: mariadb-deployment-init-configmap
+      containers:
+        - name: my-mariadb
+          image: mariadb
+          volumeMounts:
+            - name: init-volume
+              mountPath: /docker-entrypoint-initdb.d/
+          # Set required environment variables to initialize the container
+          env:
+            - name: MARIADB_ROOT_PASSWORD
+              value: "mysecretpw"
+            - name: MARIADB_DATABASE
+              value: "popular"
+          ports:
+            - containerPort: 3306
+
+---
+#Begin: Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-mariadb-service
+spec:
+  selector:
+    app: my-mariadb
+  ports:
+    - name: mariadb-proto
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
+#End: Service
